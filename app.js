@@ -1,10 +1,11 @@
 const express = require('express');
 const session = require('express-session');
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost:27017/node_crud");
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 require('dotenv').config()              // so that we can use .env
+mongoose.connect(process.env.MONGO_URL);
+const port = process.env.PORT || 4000
 
 const app = express();
 app.use(bodyParser.json());
