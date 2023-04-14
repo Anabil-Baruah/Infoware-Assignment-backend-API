@@ -1,0 +1,31 @@
+<%- include('layouts/header.ejs') %>
+    <h1 class="text-center">Enter the login details</h1>
+    <% if(message) { %>
+        <div class="alert alert-<%= message.type %> dismissible fade show my-4" role="alert">
+            <strong><%= message.strong %>!</strong>
+            <%= message.message %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <% } %>
+
+            <form action="/login" method="post">
+                <div class="form-group">
+
+                    <input type="text" name="name" class="form-control my-3" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" value="" placeholder="Enter username">
+                    <input type="email" name="email" class="form-control mt-4" id="exampleInputEmail1"
+                        autocomplete="off" aria-describedby="emailHelp" value="" placeholder="Enter email">
+                </div>
+
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control mt-4 mb-4" id="exampleInputPassword1"
+                        placeholder="Enter password" autocomplete="new-password" readonly
+                        onfocus="this.removeAttribute('readonly');">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            <%- include('layouts/footer.ejs') %>
